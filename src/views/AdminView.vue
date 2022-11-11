@@ -1,10 +1,6 @@
 <script setup>
 import { onMounted } from 'vue';
-import { showData, addData } from '../database/databaseInit'
 
-onMounted(() => {
-  showData();
-});
 </script>
 
 <template>
