@@ -3,11 +3,12 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col p-12 pt-0">
-    <header class="h-28 w-full flex-row flex items-center justify-between">
+  <div class="min-h-screen flex flex-col p-8 pt-0">
+    <header class="h-[4.5rem] w-full flex-row flex items-center justify-between">
       <div class="flex">
-        <RouterLink to="/" class="logo">
-          <img alt="studio logo" src="@/assets/images/logo-squared-gray.png" class="h-14" />
+        <RouterLink to="/" class="logo flex items-center">
+          <img alt="studio logo" src="@/assets/images/logo-squared-gray.png" class="h-10" />
+          <!-- <p class="font-normal text-2xl font-display ml-2 text-white">WonderAcid</p> -->
         </RouterLink>
       </div>
 
@@ -32,19 +33,19 @@ import { RouterLink, RouterView } from 'vue-router'
 
         <nav class="flex">
           <a href="https://discord.gg/WONDERACID">
-            <img alt="discord logo" src="@/assets/icons/discord.svg" class="h-8 w-8 mx-1.5 hover:scale-105" />
+            <img alt="discord logo" src="@/assets/icons/discord.svg" class="h-6 w-6 mx-1.5 hover:scale-105" />
           </a>
 
           <a href="https://twitter.com/wonderacid">
-            <img alt="twitter logo" src="@/assets/icons/twitter.svg" class="h-8 w-8 mx-1.5 hover:scale-105" />
+            <img alt="twitter logo" src="@/assets/icons/twitter.svg" class="h-6 w-6 mx-1.5 hover:scale-105" />
           </a>
 
           <a href="https://www.instagram.com/wonderacid/">
-            <img alt="instagram logo" src="@/assets/icons/instagram.svg" class="h-8 w-8 mx-1.5 hover:scale-105" />
+            <img alt="instagram logo" src="@/assets/icons/instagram.svg" class="h-6 w-6 mx-1.5 hover:scale-105" />
           </a>
 
           <a href="https://www.youtube.com/channel/UCZ1Z1YQ1Q9Z0Z9Z0Z9Z0Z9Z0">
-            <img alt="youtube logo" src="@/assets/icons/youtube.svg" class="h-8 w-8 mx-1.5 hover:scale-105" />
+            <img alt="youtube logo" src="@/assets/icons/youtube.svg" class="h-6 w-6 mx-1.5 hover:scale-105" />
           </a>
         </nav>
     </header>
@@ -60,10 +61,10 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
 .links .navLink {
-  margin: 0 1rem;
+  margin: 0.5rem;
   font-family: "Barlow Semi Condensed";
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1rem;
   border-radius: 0.5rem;
   padding: 0.5rem 0.75rem;
 }
@@ -101,5 +102,4 @@ import { RouterLink, RouterView } from 'vue-router'
 .fade-leave-to {
   opacity: 0;
 }
-
 </style>
