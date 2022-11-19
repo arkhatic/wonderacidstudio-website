@@ -11,7 +11,7 @@ import { RouterLink, RouterView } from "vue-router";
         <RouterLink to="/" class="logo flex items-center">
           <img
             alt="studio logo"
-            src="@/assets/images/logo-squared-gray.png"
+            src="@/assets/images/logo-squared.png"
             class="h-10"
           />
           <!-- <p class="font-normal text-2xl font-display ml-2 text-white">WonderAcid</p> -->
@@ -21,9 +21,9 @@ import { RouterLink, RouterView } from "vue-router";
       <nav class="links">
         <RouterLink to="/" class="navLink"> PROJECTS </RouterLink>
 
-        <RouterLink to="/team" class="navLink"> TEAM </RouterLink>
+        <RouterLink to="/studio" class="navLink"> THE STUDIO </RouterLink>
 
-        <RouterLink to="/about" class="navLink"> ABOUT </RouterLink>
+        <RouterLink to="/news" class="navLink"> NEWS </RouterLink>
 
         <RouterLink to="/contact" class="navLink"> CONTACT </RouterLink>
       </nav>
@@ -57,7 +57,7 @@ import { RouterLink, RouterView } from "vue-router";
           <img
             alt="youtube logo"
             src="@/assets/icons/youtube.svg"
-            class="h-6 w-6 mx-1.5 hover:scale-105"
+            class="h-6 w-6 ml-1.5 hover:scale-105"
           />
         </a>
       </nav>
@@ -81,14 +81,14 @@ import { RouterLink, RouterView } from "vue-router";
   padding: 0.5rem 0.75rem;
 }
 .links .navLink:hover {
-  background-color: #ededed;
+  background-color: #f2f2f2;
 }
 
 .links .router-link-exact-active {
-  background-color: #ededed;
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+  background-color: #f2f2f2;
+  --tw-shadow: 0 10px 15px -5px rgb(0 0 0 / 0.1),
     0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
+  --tw-shadow-colored: 0 10px 15px -5px var(--tw-shadow-color),
     0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);

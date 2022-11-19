@@ -5,6 +5,7 @@ import TeamMember from "./TeamMember.vue";
 const props = defineProps({
   name: String,
   members: Array,
+  image: String,
 });
 
 const team = toRefs(props);
@@ -17,21 +18,24 @@ const handleSelect = () => {
 </script>
 
 <template>
-  <div class="w-full h-full flex flex-col mt-2 rounded-2xl" :class="{'shadow-2xl': selected }">
+  <div
+    class="w-full max-h-fit flex flex-col mt-2 rounded-xl"
+    :class="{ 'shadow-2xl': selected }"
+  >
     <h2
       class="
         font-extrabold
-        text-4xl
-        bg-[#ededed] dark:bg-[#282828]
+        text-2xl
+        bg-[#f2f2f2] dark:bg-[#222222]
         py-6
         px-8
         rounded-2xl rounded-b-2xl
         border-b-2 border-b-neutral-200
+        dark:border-b-neutral-700
         cursor-pointer
       "
       :class="{
         'rounded-b-none': selected,
-        'border-b-neutral-600': selected,
       }"
       @click="handleSelect()"
     >
@@ -40,7 +44,7 @@ const handleSelect = () => {
 
     <div class="flex flex-col" v-if="selected">
       <div
-        class="flex max-w-1/3 bg-[#ededed] rounded-b-2xl px-4"
+        class="flex max-w-full bg-[#ededed] dark:bg-[#222222] rounded-b-xl p-4"
       >
         <TeamMember
           v-for="teamMember in team.members.value"

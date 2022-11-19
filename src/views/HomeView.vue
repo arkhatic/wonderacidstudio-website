@@ -3,9 +3,14 @@ import { ref, onMounted, onBeforeUnmount, onUpdated } from "vue";
 import { getProjects } from "../db";
 
 const projects = ref([]);
+const hovered = ref(false);
 const projectRef = ref([]);
 const loading = ref(true);
 const index = ref(0);
+
+const handleHover = () => {
+  hovered.value = !hovered.value;
+};
 
 const next = () => {
   index.value = (index.value + 1) % projects.value.length;
@@ -44,32 +49,41 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="flex grow z-10 home">
-    <div v-if="loading"
+    <div
+      v-if="loading"
       class="
-        grow flex w-full
+        grow
+        flex
+        w-full
         rounded-3xl
         bg-[#282828]
         shadow-2xl
         border-2 border-neutral-600
-        justify-center items-center
+        justify-center
+        items-center
         text-center
-      ">
+      "
+    >
       <h1 class="text-6xl font-extrabold text-white">
-        Loading... <br>
+        Loading... <br />
         Please wait!
       </h1>
     </div>
 
-    <div 
+    <div
       v-else
+      @mouseenter="handleHover"
+      @mouseleave="handleHover"
       class="
-        grow flex w-full
+        grow
+        flex
+        w-full
         rounded-3xl
-        no-repeat bg-cover bg-center
+        no-repeat
+        bg-cover bg-center
         shadow-2xl
       "
       v-bind:style="{ backgroundImage: 'url(' + projectRef.coverImage + ')' }"
-      
     >
       <div
         class="
@@ -81,27 +95,28 @@ onBeforeUnmount(() => {
           pb-12
           flex flex-col
           bg-gradient-to-t
-          from-black
-          via-[rgba(0,
-          0, 0,
-          0.7)]
           backdrop-grayscale
           hover:backdrop-grayscale-0
         "
+        :class="{
+          'from-black': !hovered,
+          'via-[rgba(0, 0, 0, 0.7)]': !hovered,
+          'from-transparent': hovered,
+        }"
       >
         <div class="flex flex-row justify-start items-end w-full px-12">
           <div class="flex flex-col justify-self-end items-start">
-            <h1 class="text-7xl font-black text-display text-white">
+            <h1 class="text-6xl font-black text-display text-white">
               {{ projectRef.name }}
             </h1>
 
-            <div class="h-1 w-96 my-4 bg-white"></div>
-            <h2 class="text-2xl font-bold text-display text-white">
+            <div class="h-1 w-96 my-2 bg-white"></div>
+            <h2 class="text-xl font-bold text-display text-white">
               {{ projectRef.description }}
             </h2>
 
             <!-- dots that follow project index -->
-            <div class="flex flex-row justify-start items-center mt-6">
+            <div class="flex flex-row justify-start items-center mt-4">
               <div
                 v-for="(project, i) in projects"
                 :key="i"
