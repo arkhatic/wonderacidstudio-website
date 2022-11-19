@@ -1,5 +1,5 @@
 <script setup>
-import { ref, toRefs, onMounted } from "vue";
+import { ref, toRefs } from "vue";
 import TeamMember from "./TeamMember.vue";
 
 const props = defineProps({
@@ -17,22 +17,21 @@ const handleSelect = () => {
 </script>
 
 <template>
-  <div class="w-full h-full flex flex-col mt-2">
+  <div class="w-full h-full flex flex-col mt-2 rounded-2xl" :class="{'shadow-2xl': selected }">
     <h2
       class="
         font-extrabold
         text-4xl
-        bg-[#282828]
+        bg-[#ededed] dark:bg-[#282828]
         py-6
         px-8
         rounded-2xl rounded-b-2xl
-        border-b-2 border-b-neutral-600
+        border-b-2 border-b-neutral-200
         cursor-pointer
       "
       :class="{
         'rounded-b-none': selected,
         'border-b-neutral-600': selected,
-        'shadow-2xl': selected,
       }"
       @click="handleSelect()"
     >
@@ -41,7 +40,7 @@ const handleSelect = () => {
 
     <div class="flex flex-col" v-if="selected">
       <div
-        class="flex max-w-1/3 bg-[#282828] rounded-b-2xl px-4"
+        class="flex max-w-1/3 bg-[#ededed] rounded-b-2xl px-4"
       >
         <TeamMember
           v-for="teamMember in team.members.value"
