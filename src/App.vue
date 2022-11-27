@@ -3,9 +3,9 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col p-8 pt-0">
+  <div class="min-h-screen flex flex-col pt-0">
     <header
-      class="h-[4.5rem] w-full flex-row flex items-center justify-between"
+      class="h-[4.5rem] w-full flex-row flex items-center justify-between px-8"
     >
       <div class="flex">
         <RouterLink to="/" class="logo flex items-center">
@@ -23,7 +23,7 @@ import { RouterLink, RouterView } from "vue-router";
 
         <RouterLink to="/studio" class="navLink"> THE STUDIO </RouterLink>
 
-        <RouterLink to="/news" class="navLink"> NEWS </RouterLink>
+        <RouterLink to="/join" class="navLink"> JOIN US </RouterLink>
 
         <RouterLink to="/contact" class="navLink"> CONTACT </RouterLink>
       </nav>
@@ -102,7 +102,7 @@ import { RouterLink, RouterView } from "vue-router";
     background-color: rgb(40, 40, 40);
   }
   .links .router-link-exact-active {
-    background-color: rgb(40, 40, 40);
+    background-color: #282828;
     --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 6px 8px -4px rgb(0 0 0 / 0.1);
     --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),

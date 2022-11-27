@@ -48,7 +48,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="flex grow z-10 home">
+  <div class="flex grow z-10 home p-8 pt-0">
     <div
       v-if="loading"
       class="
