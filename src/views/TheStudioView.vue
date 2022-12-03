@@ -24,11 +24,11 @@ onMounted(async () => {
 
 <template>
   <div class="about flex-col p-8 pt-0">
-    <div class="h-fit flex px-56 py-48">
-      <h1 class="w-[36rem] text-xl font-mono text-primary">The Studio</h1>
+    <div class="w-full h-fit flex flex-col lg:flex-row px-10 sm:px-14 md:px-18 lg:px-24 xl:px-56 py-36 lg:py-48">
+      <h1 class="lg:w-[24rem] xl:w-[36rem] mb-2 lg:mb-none text-xl font-mono text-primary">The Studio</h1>
 
       <div class="w-full">
-        <h1 class="font-extrabold text-5xl text-primary">
+        <h1 class="font-extrabold text-3xl sm:text-5xl text-primary">
           WonderAcid fuses inovation and technology to create new and exciting
           games.
         </h1>
@@ -40,12 +40,13 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex flex-col lg:flex-row justify-center">
       <div
         v-for="headMember in head"
         :key="headMember.id"
         class="
-          w-[32rem]
+          lg:w-[32rem]
+          w-full
           h-[12rem]
           flex flex-row
           justify-between
@@ -53,12 +54,13 @@ onMounted(async () => {
           rounded-xl
           shadow-xl
           mr-8
+          mb-8 lg:mt-none
           hover:shadow-none
         "
       >
         <div class="p-12 w-1/2">
-          <h1 class="text-xl font-mono">{{ headMember.role }}</h1>
-          <h1 class="font-extrabold text-3xl">{{ headMember.name }}</h1>
+          <h1 class="text-lg sm:text-xl font-mono">{{ headMember.role }}</h1>
+          <h1 class="font-extrabold text-xl sm:text-3xl">{{ headMember.name }}</h1>
         </div>
 
         <div
@@ -69,8 +71,8 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div class="h-fit flex px-56 pt-48 mb-48">
-      <h1 class="w-[36rem] text-xl font-mono text-primary">The Teams</h1>
+    <div class="w-full h-fit flex flex-col lg:flex-row px-0 sm:px-10 md:px-18 lg:px-24 xl:px-56 py-36 lg:py-48">
+      <h1 class="lg:w-[24rem] xl:w-[36rem] mb-2 lg:mb-none text-xl font-mono text-primary">The Teams</h1>
 
       <div class="w-full">
         <TeamGroup

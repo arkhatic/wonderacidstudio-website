@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col circle-scatter grow justify-center items-center px-24">
-    <h1 class="text-6xl font-black text-center flex-col">
+  <div class="flex flex-col circle-scatter grow justify-center items-center px-8 lg:px-24">
+    <h1 class="text-5xl lg:text-6xl font-black text-center flex-col">
       If you feel like joining us, <br />
       do not hesitate to
-      <a class="text-primary hover:underline" href="mailto:wonderacid@gmail.com">send your portifolio</a>.
+      <a class="text-primary underline lg:no-underline lg:hover:underline" href="mailto:wonderacid@gmail.com">send your portifolio</a>.
     </h1>
-    <p class="mt-4 text-2xl font-bold">We may be the perfect team for you.</p>
+    <p class="text-center mt-4 text-2xl font-bold">We may be the perfect team for you.</p>
   </div>
 </template>
 

@@ -21,7 +21,7 @@ export default {
   <div class="flex flex-col">
     <div class="overflow-x-hidden">
       <div
-        class="flex justify-center items-center h-screen w-screen wave-up"
+        class="flex justify-center items-center h-screen w-screen wave-up pt-[4.5rem]"
       >
         <h1 class="mb-32 w-2/3 text-center text-6xl font-black">
           We can help you develop your game.
@@ -29,8 +29,8 @@ export default {
       </div>
     </div>
 
-    <div class="bg-primary h-fit px-48 py-32">
-      <h1 class="font-black text-6xl text-center text-black">
+    <div class="w-screen bg-primary h-fit px-12 md:px-24 xl:px-48 py-32">
+      <h1 class="font-black text-5xl lg:text-6xl text-center text-black">
         We are not only a game studio, <br />
         but a freelancing agency.
       </h1>
@@ -41,10 +41,10 @@ export default {
       </p>
     </div>
 
-    <div class="h-screen p-96 flex flex-col text-center justify-center items-center blob-scene">
-      <h1 class="text-6xl font-black mb-8">Send us an email!</h1>
+    <div class="h-screen w-screen p-12 xl:p-96 flex flex-col text-center justify-center items-center blob-scene">
+      <h1 class="text-6xl font-black mb-8 pt-[4.5rem]">Send us an email!</h1>
 
-      <form @submit.prevent="sendEmail" ref="form">
+      <form @submit.prevent="sendEmail" ref="form" class="w-5/6">
         <label>Name</label>
         <input 
           type="text" 

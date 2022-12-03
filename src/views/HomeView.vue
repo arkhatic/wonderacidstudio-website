@@ -2,11 +2,17 @@
 import { ref, onMounted, onBeforeUnmount, onUpdated } from "vue";
 import { getProjects } from "../db";
 
+let width = window.innerWidth;
+
 const projects = ref([]);
 const hovered = ref(false);
 const projectRef = ref([]);
 const loading = ref(true);
 const index = ref(0);
+
+window.onresize = () => {
+  width = window.innerWidth;
+};
 
 const handleHover = () => {
   hovered.value = !hovered.value;
@@ -48,14 +54,15 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="flex grow z-10 home p-8 pt-0">
+  <div class="flex mt-0 lg:mt-[2.5rem] grow z-10 home p-0 lg:p-8 pt-0">
     <div
       v-if="loading"
       class="
         grow
         flex
         w-full
-        rounded-3xl
+        rounded-none
+        lg:rounded-3xl
         bg-[#282828]
         shadow-2xl
         border-2 border-neutral-600
@@ -78,7 +85,8 @@ onBeforeUnmount(() => {
         grow
         flex
         w-full
-        rounded-3xl
+        rounded-[inherit]
+        lg:rounded-3xl
         no-repeat
         bg-cover bg-center
         shadow-2xl
@@ -91,32 +99,53 @@ onBeforeUnmount(() => {
           grow
           justify-end
           items-center
-          rounded-3xl
+          rounded-[inherit]
+          lg:rounded-3xl
           pb-12
           flex flex-col
           bg-gradient-to-t
-          backdrop-grayscale
-          hover:backdrop-grayscale-0
+          from-black
+          via-[rgba(0, 0, 0, 0.7)]
         "
-        :class="{
-          'from-black': !hovered,
-          'via-[rgba(0, 0, 0, 0.7)]': !hovered,
-          'from-transparent': hovered,
-        }"
       >
-        <div class="flex flex-row justify-start items-end w-full px-12">
+        <div
+          class="
+            flex flex-row
+            justify-center
+            sm:justify-start
+            items-end
+            w-full
+            px-12
+          "
+        >
           <div class="flex flex-col justify-self-end items-start">
-            <h1 class="text-6xl font-black text-display text-white">
+            <h1
+              class="
+                text-4xl
+                xl:text-6xl
+                lg:text-5xl
+                font-black
+                text-display 
+              "
+            >
               {{ projectRef.name }}
             </h1>
 
-            <div class="h-1 w-96 my-2 bg-white"></div>
-            <h2 class="text-xl font-bold text-display text-white">
+            <div class="h-1 w-full my-2 bg-[#eaeaea] bg-opacity-60"></div>
+            <h2
+              class="
+                text-md
+                xl:text-xl
+                lg:text-xl
+                font-bold
+                text-display 
+              "
+            >
               {{ projectRef.description }}
             </h2>
 
             <!-- dots that follow project index -->
-            <div class="flex flex-row justify-start items-center mt-4">
+            <div v-if="width > 768" class="flex flex-row justify-start items-center mt-4">
               <div
                 v-for="(project, i) in projects"
                 :key="i"
@@ -124,12 +153,12 @@ onBeforeUnmount(() => {
                   h-5
                   w-5
                   rounded-full
-                  border-2 border-white
                   mr-3
+                  bg-opacity-60
                   cursor-pointer
                   hover:scale-125
                 "
-                v-bind:class="{ 'bg-white': i === index }"
+                v-bind:class="{ 'bg-[#eaeaea]': i === index }"
                 @click="handleDotClick(i)"
               ></div>
             </div>

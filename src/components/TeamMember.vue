@@ -41,6 +41,7 @@ const handleHover = () => {
           h-full
           w-full
           bg-black/50
+          backdrop-blur-sm
           rounded-[inherit]
         "
       >

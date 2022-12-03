@@ -26,7 +26,7 @@ const handleSelect = () => {
       class="
         font-extrabold
         text-2xl
-        bg-[#f2f2f2] dark:bg-[#222222]
+        bg-[#222222] hover:bg-[#202020] r
         py-6
         px-8
         rounded-2xl rounded-b-2xl
@@ -44,7 +44,7 @@ const handleSelect = () => {
 
     <div class="flex flex-col" v-if="selected">
       <div
-        class="flex max-w-full bg-[#ededed] dark:bg-[#222222] rounded-b-xl p-4"
+        class="flex max-w-full bg-[#222222] rounded-b-xl p-4 overflow-x-auto"
       >
         <TeamMember
           v-for="teamMember in team.members.value"
