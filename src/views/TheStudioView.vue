@@ -40,21 +40,22 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div class="flex flex-col lg:flex-row justify-center">
+    <div class="flex mx-auto w-full md:w-fit grid grid-cols-1 gap-8 lg:grid-cols-2 justify-center">
       <div
         v-for="headMember in head"
         :key="headMember.id"
         class="
-          lg:w-[32rem]
-          w-full
+          xl:w-[32rem] lg:w-full
+          md:min-w-[28rem]
+          max-w-[32rem]
+          min-w-fit
+          
           h-[12rem]
           flex flex-row
           justify-between
           bg-[#f2f2f2] dark:bg-[#222222] 
           rounded-xl
           shadow-xl
-          mr-8
-          mb-8 lg:mt-none
           hover:shadow-none
         "
       >

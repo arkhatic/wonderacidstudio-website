@@ -121,9 +121,9 @@ onBeforeUnmount(() => {
           <div class="flex flex-col justify-self-end items-start">
             <h1
               class="
-                text-4xl
+                w-fit
+                text-5xl
                 xl:text-6xl
-                lg:text-5xl
                 font-black
                 text-display 
               "
@@ -132,9 +132,11 @@ onBeforeUnmount(() => {
             </h1>
 
             <div class="h-1 w-full my-2 bg-[#eaeaea] bg-opacity-60"></div>
+
             <h2
               class="
-                text-md
+                w-fit
+                text-lg
                 xl:text-xl
                 lg:text-xl
                 font-bold
@@ -154,11 +156,11 @@ onBeforeUnmount(() => {
                   w-5
                   rounded-full
                   mr-3
-                  bg-opacity-60
                   cursor-pointer
                   hover:scale-125
+                  bg-white
                 "
-                v-bind:class="{ 'bg-[#eaeaea]': i === index }"
+                v-bind:class="{ 'bg-opacity-60': i === index, 'bg-opacity-10': i !== index }"
                 @click="handleDotClick(i)"
               ></div>
             </div>

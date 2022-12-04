@@ -14,64 +14,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-
-// data structure
-// member -> name, role, profileImage
-// head -> head -> members -> [member]
-// teams -> toTheMoon -> name, description, coverImage, members -> [member]
-
-const addHeadMember = async (member) => {
-  const docRef = await addDoc(collection(db, 'head', 'headTeam', 'members'), {
-    name: member.name,
-    role: member.role,
-    profileImage: member.profileImage
-  });
-  return docRef.id;
-}
-
-const deleteHeadMember = async (id) => {
-  await deleteDoc(doc(db, 'head', 'headTeam', 'members', id));
-  return id;
-}
-
-const addProject = async (project) => {
-  const docRef = await addDoc(collection(db, 'teams'), {
-    name: project.name,
-    description: project.description,
-    coverImage: project.coverImage,
-    members: project.members
-  });
-  return docRef.id;
-}
-
-const addProjectMember = async (projectId, member) => {
-  const docRef = await addDoc(collection(db, 'teams', projectId, 'members'), {
-    name: member.name,
-    role: member.role,
-    profileImage: member.profileImage
-  });
-  return docRef.id;
-}
-
-const deleteProjectMember = async (projectId, id) => {
-  await deleteDoc(doc(db, 'teams', projectId, 'members', id));
-  return id;
-}
-
-const deleteProject = async (id) => {
-  await deleteDoc(doc(db, 'teams', id));
-  return id;
-}
-
 const getHead = async () => {
   const querySnapshot = await getDocs(collection(db, "head"));
   let head = [];
   querySnapshot.forEach((doc) => {
-    for (let team in doc.data()) {
-      for (let member in doc.data()[team]) {
-        head.push(doc.data()[team][member]);
-      }
-    }
+    head.push(doc.data());
   });
   return head;
 }
@@ -86,8 +33,5 @@ const getProjects = async () => {
 }
 
 export { 
-  addHeadMember, deleteHeadMember, 
-  addProject, addProjectMember, 
-  deleteProjectMember, deleteProject, 
   getHead, getProjects 
 };
