@@ -48,7 +48,7 @@ export default {
         <label>Name</label>
         <input 
           type="text" 
-          name="name"
+          name="from_name"
           placeholder="Your Name"
         >
         <label>Email</label>
