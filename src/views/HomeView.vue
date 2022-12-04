@@ -54,7 +54,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="flex mt-0 lg:mt-[2.5rem] grow z-10 home p-0 lg:p-8 pt-0">
+  <div class="flex mt-0 grow z-10 home p-0 pt-0">
     <div
       v-if="loading"
       class="
@@ -62,7 +62,6 @@ onBeforeUnmount(() => {
         flex
         w-full
         rounded-none
-        lg:rounded-3xl
         bg-[#282828]
         shadow-2xl
         border-2 border-neutral-600
@@ -86,7 +85,6 @@ onBeforeUnmount(() => {
         flex
         w-full
         rounded-[inherit]
-        lg:rounded-3xl
         no-repeat
         bg-cover bg-center
         shadow-2xl
@@ -100,7 +98,6 @@ onBeforeUnmount(() => {
           justify-end
           items-center
           rounded-[inherit]
-          lg:rounded-3xl
           pb-12
           flex flex-col
           bg-gradient-to-t

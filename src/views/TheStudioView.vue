@@ -59,7 +59,7 @@ onMounted(async () => {
           hover:shadow-none
         "
       >
-        <div class="p-12 w-1/2">
+        <div class="p-12 w-1/2 flex-col justify-center flex h-full ">
           <h1 class="text-lg sm:text-xl font-mono">{{ headMember.role }}</h1>
           <h1 class="font-extrabold text-xl sm:text-3xl">{{ headMember.name }}</h1>
         </div>
