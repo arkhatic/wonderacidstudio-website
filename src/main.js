@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { createI18n } from 'vue-i18n'
 
 import App from './App.vue'
 import router from './router'
@@ -25,8 +26,24 @@ const options = {
   rtl: false
 }
 
+const i18n = createI18n({
+  legacy: false,
+  locale: 'pt',
+  fallbackLocale: 'en',
+  messages: {
+    en: {
+      form: "Please fill the form."
+    },
+    pt: {
+      form: "Por favor, preencha o formulário."
+    }
+  }
+});
+
 app.use(createPinia())
 app.use(router)
 app.use(Toast, options)
+app.use(i18n)
+
 
 app.mount('#app')

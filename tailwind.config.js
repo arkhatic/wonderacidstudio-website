@@ -13,7 +13,8 @@ module.exports = {
         ...defaultTheme.screens,
       },
       colors: {
-        "primary": "#8B07A6",
+        // "primary": "#8B07A6",
+        "primary": "#b030c9",
         "secondary": "#B9FF2E",
       },
       fontFamily: {

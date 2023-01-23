@@ -3,5 +3,5 @@
   <rect x="0" y="0" width="960" height="540" fill="#1e1e1e"></rect>
   <path
     d="M0 441L53.3 446.2C106.7 451.3 213.3 461.7 320 460.7C426.7 459.7 533.3 447.3 640 444.5C746.7 441.7 853.3 448.3 906.7 451.7L960 455L960 541L906.7 541C853.3 541 746.7 541 640 541C533.3 541 426.7 541 320 541C213.3 541 106.7 541 53.3 541L0 541Z"
-    fill="#8B07A6" stroke-linecap="round" stroke-linejoin="miter"></path>
+    fill="#000000" stroke-linecap="round" stroke-linejoin="miter"></path>
 </svg>

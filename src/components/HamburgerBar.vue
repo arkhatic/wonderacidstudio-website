@@ -1,25 +1,24 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { getAllTexts } from "../db";
 
-const links = [
-  {
-    name: "PROJECTS",
-    link: "/",
-  },
-  {
-    name: "THE STUDIO",
-    link: "/studio",
-  },
-  {
-    name: "JOIN US",
-    link: "/join",
-  },
-  {
-    name: "CONTACT",
-    link: "/contact",
-  },
-];
+const texts = ref({});
+const loading = ref(true);
+
+onMounted(async () => {
+  await getAllTexts().then((data) => {
+    for (let i = 0; i < data.length; i++) {
+      if (i == 2) {
+        for (let j in data[i]) {
+          texts.value[j] = data[i][j];
+          console.log(j, data[i][j]);
+        }
+      }
+    }
+  });
+  loading.value = false;
+});
 
 const socials = [
   {
@@ -47,7 +46,6 @@ const socials = [
 const selected = ref(false);
 const handleSelected = () => {
   selected.value = !selected.value;
-  console.log(selected.value);
 };
 </script>
 
@@ -73,19 +71,40 @@ const handleSelected = () => {
         </svg>
       </div>
 
-      <div class="h-full flex flex-col justify-center items-center -mt-[4.5rem] links">
+      <div class="h-full flex flex-col justify-center items-center -mt-[4.5rem] links" v-if="loading == false">
         <h1 class="text-2xl font-black">Menu</h1>
         <RouterLink
-          v-for="link in links"
-          :key="link.name"
-          :to="link.link"
+          to="/"
           class="navLink"
           @click="handleSelected"
         >
-          {{ link.name }}
+          {{ texts.textsPortuguese[0] }}
+        </RouterLink>
+        <RouterLink
+          to="/studio"
+          class="navLink"
+          @click="handleSelected"
+        >
+          {{ texts.textsPortuguese[1] }}
         </RouterLink>
 
-        <h1 class="text-2xl font-black mt-4">Socials</h1>
+        <RouterLink
+          to="/join"
+          class="navLink"
+          @click="handleSelected"
+        >
+          {{ texts.textsPortuguese[2] }}
+        </RouterLink>
+
+        <RouterLink
+          to="/contact"
+          class="navLink"
+          @click="handleSelected"
+        >
+          {{ texts.textsPortuguese[3] }}
+        </RouterLink>
+
+        <h1 class="text-2xl font-black mt-4">Links</h1>
         <a
           v-for="social in socials"
           :key="social.name"

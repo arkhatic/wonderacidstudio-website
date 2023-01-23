@@ -70,10 +70,7 @@ onBeforeUnmount(() => {
         text-center
       "
     >
-      <h1 class="text-6xl font-extrabold text-white">
-        Loading... <br />
-        Please wait!
-      </h1>
+      <img src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_medium.gif" alt="">
     </div>
 
     <div
@@ -140,7 +137,7 @@ onBeforeUnmount(() => {
                 text-display 
               "
             >
-              {{ projectRef.description }}
+              {{ $i18n.locale === 'en' ? projectRef.description : projectRef.descriptionPortuguese }}
             </h2>
 
             <!-- dots that follow project index -->

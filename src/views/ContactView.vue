@@ -24,43 +24,33 @@ export default {
         class="flex justify-center items-center h-screen w-screen wave-up pt-[4.5rem]"
       >
         <h1 class="mb-32 w-2/3 text-center text-6xl font-black">
-          We can help you develop your game.
+          {{ $i18n.locale == 'en' ? texts.titleEnglish : texts.titlePortuguese }}
         </h1>
       </div>
     </div>
 
-    <div class="w-screen bg-primary h-fit px-12 md:px-24 xl:px-48 py-32">
-      <h1 class="font-black text-5xl lg:text-6xl text-center text-black">
-        We are not only a game studio, <br />
-        but a freelancing agency.
-      </h1>
-
-      <p class="text-black text-2xl text-center mt-4 font-bold">
-        We provide a wide range of services, from 3D models to lore and
-          documentation.
+    <div class="w-screen bg-black h-fit px-12 md:px-24 xl:px-48 py-32">
+      <p class="text-white text-2xl text-center mt-4 font-bold">
+        {{ $i18n.locale == 'en' ? texts.descriptionEnglish : texts.descriptionPortuguese }}
       </p>
     </div>
 
     <div class="h-screen w-screen p-12 xl:p-96 flex flex-col text-center justify-center items-center blob-scene">
-      <h1 class="text-6xl font-black mb-8 pt-[4.5rem]">Send us an email!</h1>
+      <h1 class="text-6xl font-black mb-8 pt-[4.5rem]">{{ $i18n.locale == 'en' ? texts.emailEnglish : texts.emailPortuguese}}</h1>
 
       <form @submit.prevent="sendEmail" ref="form" class="w-5/6">
-        <label>Name</label>
         <input 
           type="text" 
           name="from_name"
-          placeholder="Your Name"
+          placeholder="Discord ID"
         >
-        <label>Email</label>
         <input 
           type="email"
           name="email"
-          placeholder="Your Email"
+          placeholder="Email"
           >
-        <label>Message</label>
         <textarea 
           name="message"
-          cols="30" rows="5"
           placeholder="Message">
         </textarea>
         
@@ -69,6 +59,26 @@ export default {
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { getAllTexts } from "../db";
+
+const texts = ref([]);
+
+onMounted(async () => {
+  await getAllTexts().then((data) => {
+    for (let i = 0; i < data.length; i++) {
+      if (i == 0) {
+        for (let j in data[i]) {
+          texts.value[j] = data[i][j];
+          console.log(j);
+        }
+      }
+    }
+  });
+});
+</script>
 
 <style scoped>
 label {
@@ -129,3 +139,4 @@ input[type=submit]:hover {
   background-size: 100%;
 }
 </style>
+

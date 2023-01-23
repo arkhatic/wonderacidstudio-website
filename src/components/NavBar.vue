@@ -1,5 +1,25 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import { ref, onMounted } from "vue";
+import { getAllTexts } from "../db";
+import LanguageSwitcher from "./LanguageSwitcher.vue";
+
+const texts = ref({});
+const loading = ref(true);
+
+onMounted(async () => {
+  await getAllTexts().then((data) => {
+    for (let i = 0; i < data.length; i++) {
+      if (i == 2) {
+        for (let j in data[i]) {
+          texts.value[j] = data[i][j];
+          console.log(j, data[i][j]);
+        }
+      }
+    }
+    loading.value = false;
+  });
+});
 </script>
 
 <template>
@@ -17,17 +37,18 @@ import { RouterLink } from "vue-router";
       </RouterLink>
     </div>
 
-    <nav class="links">
-      <RouterLink to="/" class="navLink"> PROJECTS </RouterLink>
+    <nav class="links" v-if="loading == false">
+      <RouterLink to="/" class="navLink"> {{ $i18n.locale == 'en' ? texts['textsEnglish'][0] : texts['textsPortuguese'][0] }} </RouterLink>
 
-      <RouterLink to="/studio" class="navLink"> THE STUDIO </RouterLink>
+      <RouterLink to="/studio" class="navLink"> {{ $i18n.locale == 'en' ? texts['textsEnglish'][1] : texts['textsPortuguese'][1] }} </RouterLink>
 
-      <RouterLink to="/join" class="navLink"> JOIN US </RouterLink>
+      <RouterLink to="/join" class="navLink"> {{ $i18n.locale == 'en' ? texts['textsEnglish'][2] : texts['textsPortuguese'][2] }} </RouterLink>
 
-      <RouterLink to="/contact" class="navLink"> CONTACT </RouterLink>
+      <RouterLink to="/contact" class="navLink"> {{ $i18n.locale == 'en' ? texts['textsEnglish'][3] : texts['textsPortuguese'][3] }} </RouterLink>
     </nav>
 
     <nav class="flex">
+      
       <a href="https://discord.gg/WONDERACID" rel="noreferrer noopener" target="_blank">
         <img
           alt="discord logo"
@@ -59,6 +80,7 @@ import { RouterLink } from "vue-router";
           class="h-6 w-6 ml-1.5 hover:scale-105"
         />
       </a>
+      <LanguageSwitcher />
     </nav>
   </header>
 </template>
