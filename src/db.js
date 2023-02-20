@@ -39,6 +39,7 @@ async function saveMember(member) {
     email: member.email,
     name: member.name,
     age: member.age,
+    discord: member.discord,
     profilePicture: member.profilePicture,
     pronouns: member.pronouns,
     about: member.about,
@@ -76,18 +77,6 @@ async function getMember(id) {
   }
 }
 
-
-// projects operations
-async function addProject() {
-  const docRef = await addDoc(collection(db, 'teams'), projectBoilerplate);
-  return docRef.id;
-}
-
-async function deleteProject(id) {
-  await deleteDoc(doc(db, 'teams', id));
-  return id;
-}
-
 async function getProjectId(name) {
   const querySnapshot = await getDocs(collection(db, 'teams'));
   let id = '';
@@ -97,19 +86,6 @@ async function getProjectId(name) {
     }
   });
   return id;
-}
-
-async function editProject(project) {
-  const docRef = doc(db, 'teams', project.id);
-  await deleteDoc(docRef);
-  const addedDoc = await setDoc(doc(db, 'teams', project.id), {
-    name: project.name,
-    description: project.description,
-    descriptionPortuguese: project.descriptionPortuguese,
-    coverImage: project.coverImage,
-    members: project.members
-  });
-  return addedDoc;
 }
 
 const getMembers = async () => {
@@ -216,7 +192,7 @@ async function editText(id, text) {
 export {
   app,
   getMember, getMembers, addMember, deleteMember, saveMember, getMemberId,
-  getProjects, addProject, editProject, deleteProject, getProjectId,
+  getProjects, getProjectId,
   checkIfVerified, checkIfHead,
   getAllRoles, getAllTexts, editRoles, editText,
   getContactText, getJoinText, getTeamText
