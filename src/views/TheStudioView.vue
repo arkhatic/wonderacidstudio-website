@@ -20,7 +20,7 @@
     </div>
 
     <div
-      class="flex mx-auto px-10 w-full md:w-fit grid grid-cols-1 gap-8 lg:grid-cols-2 justify-center items-center"
+      class="mx-auto px-10 w-full md:w-fit grid grid-cols-1 gap-8 lg:grid-cols-2 justify-center items-center"
     >
       <div
         v-for="headMember in headMembers"
@@ -56,7 +56,7 @@
           @click="filterByProject(null)"
           :class="selectedProject == null ? 'bg-primary' : ''"
         >
-          All
+          {{ $i18n.locale == 'en' ? 'All' : 'Todos' }}
         </button>
 
         <button 

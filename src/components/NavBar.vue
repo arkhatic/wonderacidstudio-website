@@ -100,11 +100,11 @@ onMounted(async () => {
 }
 
 .links .navLink:hover {
-  background-color: rgba(0, 0, 0, 0.20);
+  background-color: #303030;
 }
 
 .links .router-link-exact-active {
-  background-color: rgba(0, 0, 0, 0.20);
+  background-color: #303030;
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
     0 6px 8px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),

@@ -6,64 +6,76 @@
       </a>
     </div>
 
-    <div class="min-h-screen flex flex-col justify-center items-center bg-black" id="forms">
-      <h1 class="text-3xl font-extrabold">{{ $i18n.locale == 'en' ? "Please fill the form." : "Preencha o formulário abaixo." }}</h1>
-      <form>
-        <input type="text" v-model="name" name="name" placeholder="Name">
-        <input type="email" v-model="email" name="email" placeholder="Email">
-        <input type="number" v-model="age" name="age" placeholder="Age">
-        <input type="text" v-model="discord" name="discord" placeholder="Discord ID">
-        <input type="text" v-model="profilePicture" name="profilePicture" placeholder="Profile Picture">
-        <input type="text" v-model="about" name="about" placeholder="About (English)">
-        <input type="text" v-model="aboutPortuguese" name="about" placeholder="About (Portuguese)">
-        <!-- radial buttons -->
-        <div class="radio">
-          <h3>Gender</h3>
-          <input type="radio" v-model="pronouns" value="He/His">He/His
-          <input type="radio" v-model="pronouns" value="She/Her">She/Her
-          <input type="radio" v-model="pronouns" value="They/Their">They/Their
-        </div>
+    <div class="min-h-screen flex flex-col justify-center items-center bg-black">
+      <div v-if="isRegistered() == false" class="min-h-screen flex flex-col justify-center items-center" id="forms">
+        <h1 class="text-3xl font-extrabold">{{ $i18n.locale == 'en' ? "Please fill the form." : "Preencha o formulário abaixo." }}</h1>
+        <form>
+          <input type="text" v-model="name" name="name" :placeholder="$i18n.locale == 'en' ? 'Name' : 'Nome'">
+          <input type="email" v-model="email" name="email" placeholder="Email">
+          <input type="number" v-model="age" name="age" :placeholder="$i18n.locale == 'en' ? 'Age' : 'Idade'">
+          <input type="text" v-model="discord" name="discord" placeholder="Discord ID">
+          <input type="text" v-model="profilePicture" name="profilePicture" :placeholder="$i18n.locale == 'en' ? 'Profile picture link' : 'Link da foto de perfil'">
+          <input type="text" v-model="about" name="about" :placeholder="$i18n.locale == 'en' ? 'About you in English' : 'Sobre você em inglês'">
+          <input type="text" v-model="aboutPortuguese" name="about" :placeholder="$i18n.locale == 'en' ? 'About you in Portuguese' : 'Sobre você em português'">
+          <!-- radial buttons -->
+          <div class="radio">
+            <h3>{{ $i18n.locale == "en" ? "Gender" : "Gênero" }}</h3>
+            <input type="radio" v-model="pronouns" value="He/His">{{ $i18n.locale == "en" ? "He/His" : "Ele/Dele" }}
+            <input type="radio" v-model="pronouns" value="She/Her">{{ $i18n.locale == "en" ? "He/His" : "Ela/Dela" }}
+            <input type="radio" v-model="pronouns" value="They/Their">{{ $i18n.locale == "en" ? "He/His" : "Outro" }}
+          </div>
 
-        <div class="radio">
-            <h3>Roles</h3>
-            <!-- list of checkboxes for each role -->
-            <div>
-              <button 
-                v-for="(role, i) in roles"
-                :key="role"
-                class="bg-[#222222] rounded-2xl px-4 py-2 border border-transparent hover:border-primary m-2"
-                @click="addRole(role, i)"
-                :class="selectedRoles[i] == role ? 'bg-primary' : ''"
-                type="button"
-              >
-                {{ role }}
-              </button>
+          <div class="radio"> 
+              <h3>{{ $i18n.locale == 'en' ? "Roles" : "Cargos" }}</h3>
+              <!-- list of checkboxes for each role -->
+              <div>
+                <button 
+                  v-for="(role, i) in roles"
+                  :key="role"
+                  class="bg-[#222222] rounded-2xl px-4 py-2 border border-transparent hover:border-primary m-2"
+                  @click="addRole(role, i)"
+                  :class="selectedRoles[i] == role ? 'bg-primary' : ''"
+                  type="button"
+                >
+                  {{ role }}
+                </button>
+              </div>
+            
+          </div>
+
+          <div class="radio">
+            <h3>Links</h3>
+            
+            <div v-for="(link, i) in links" class="flex mt-2.5">
+              <button class="bg-[#303030] hover:bg-green-700 font-mono px-4 py-1 rounded-md mr-2.5" @click="links.push('')" type="button">+</button>
+              <button class="bg-[#303030] hover:bg-red-700 font-mono px-4 rounded-md" @click="() => { if (links.length > 1) { links.splice(i, 1) } }" type="button">-</button>
+              <input type="text" v-model="links[i]" name="links" placeholder="Link" style="margin: 0; background-color: #303030; height: 2rem; margin-left: 10px;">
             </div>
-          
-        </div>
-
-        <div class="radio">
-          <h3>Links</h3>
-          
-          <div v-for="(link, i) in links" class="flex mt-2.5">
-            <button class="bg-[#303030] hover:bg-green-700 font-mono px-4 py-1 rounded-md mr-2.5" @click="links.push('')" type="button">+</button>
-            <button class="bg-[#303030] hover:bg-red-700 font-mono px-4 rounded-md" @click="() => { if (links.length > 1) { links.splice(i, 1) } }" type="button">-</button>
-            <input type="text" v-model="links[i]" name="links" placeholder="Link" style="margin: 0; background-color: #303030; height: 2rem; margin-left: 10px;">
           </div>
-        </div>
 
-        <div class="radio">
-          <h3>Images</h3>
-          
-          <div v-for="(image, i) in images" class="flex mt-2.5">
-            <button class="bg-[#303030] hover:bg-green-700 font-mono px-4 py-1 rounded-md mr-2.5" @click="images.push('')" type="button">+</button>
-            <button class="bg-[#303030] hover:bg-red-700 font-mono px-4 rounded-md" @click="() => { if (images.length > 1) { images.splice(i, 1) } }" type="button">-</button>
-            <input type="text" v-model="images[i]" name="images" placeholder="Link" style="margin: 0; background-color: #303030; height: 2rem; margin-left: 10px;">
+          <div class="radio">
+            <h3>{{ $i18n.locale == 'en' ? "Images" : "Imagens" }}</h3>
+            
+            <div v-for="(image, i) in images" class="flex mt-2.5">
+              <button class="bg-[#303030] hover:bg-green-700 font-mono px-4 py-1 rounded-md mr-2.5" @click="images.push('')" type="button">+</button>
+              <button class="bg-[#303030] hover:bg-red-700 font-mono px-4 rounded-md" @click="() => { if (images.length > 1) { images.splice(i, 1) } }" type="button">-</button>
+              <input type="text" v-model="images[i]" name="images" placeholder="Link" style="margin: 0; background-color: #303030; height: 2rem; margin-left: 10px;">
+            </div>
           </div>
-        </div>
-        <button class="submitButton" type="button" value="Submit" @click="saveNewMember()">Submit</button>
-      </form>
+          <button class="submitButton" type="button" value="Submit" @click="saveNewMember()">
+            {{ $i18n.locale == 'en' ? "Submit" : "Enviar" }}
+          </button>
+        </form>
+      </div>
+
+      <div v-else>
+        <h1 class="text-6xl font-extrabold">
+          {{ $i18n.locale == 'en' ? "Your form has been already submitted." : "Seu formulário já foi enviado." }}
+        </h1>
+      </div>
     </div>
+    
+
 
     <div class="h-screen circle-scatter-backwards">
 
@@ -153,6 +165,11 @@ const roles = ref([]);
 const selectedRoles = ref([]);
 
 async function saveNewMember() {
+  const currentDate = new Date();
+  const date = currentDate.toLocaleString("pt-BR", {
+    timeZone: "America/Sao_Paulo",
+  });
+
   let rr = selectedRoles.value.filter((role) => role != null);
   await addMember().then(async (id) => {
     await saveMember({
@@ -162,6 +179,7 @@ async function saveNewMember() {
       email: email.value,
 
       discord: discord.value,
+      registrationDate: date,
 
       name: name.value,
       pronouns: pronouns.value,
@@ -173,7 +191,22 @@ async function saveNewMember() {
       links: links.value,
       images: images.value,
       roles: rr,
-    });
+    }).then(() => {
+      window.localStorage.setItem("registered", "true");
+
+      name.value = "";
+      email.value = "";
+      age.value = "";
+      discord.value = "";
+      profilePicture.value = "";
+      about.value = "";
+      aboutPortuguese.value = "";
+      pronouns.value = "";
+      links.value = [''];
+      images.value = [''];
+      roles.value = [];
+      selectedRoles.value = [];
+    })
   })
 }
 
@@ -184,6 +217,14 @@ function addRole(role, position) {
     selectedRoles.value[position] = role;
   }
   console.log(selectedRoles.value);
+}
+
+function isRegistered() {
+  if (window.localStorage.getItem("registered") == "true") {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 onMounted(async () => {
@@ -197,6 +238,7 @@ onMounted(async () => {
       }
     }
   });
+
   await getAllRoles().then((data) => {
     for (let i = 0; i < data.length; i++) {
       for (let j in data[i]) {
@@ -207,6 +249,10 @@ onMounted(async () => {
     }
     selectedRoles.value = Array(roles.value.length).fill(null);
   });
+  // if localStorage item exists, then the user has already registered
+  if (window.localStorage.getItem("registered") == null) {
+    window.localStorage.setItem("registered", "false");
+  }
 });
 
 </script>

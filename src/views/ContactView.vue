@@ -1,20 +1,34 @@
-<script>
+<script setup>
 import emailjs from 'emailjs-com';
 import { useToast } from 'vue-toastification';
+import { ref, onMounted } from "vue";
+import { getAllTexts } from "../db";
+
 const toast = useToast();
 
-export default {
-  methods: {
-    sendEmail(e) {
-      emailjs.sendForm('service_n6iwgzp', 'template_93kn63q', this.$refs.form, 'gxZsYo91yUxcxAKr1')
-        .then((result) => {
-          toast.success('Email sent successfully!');
-        }, (error) => {
-          console.log(error.text);
-        });
-    },
-  }
+const texts = ref([]);
+
+
+function sendEmail(e) {
+  emailjs.sendForm('service_n6iwgzp', 'template_93kn63q', this.$refs.form, 'gxZsYo91yUxcxAKr1')
+  .then((result) => {
+      toast.success('Email sent successfully!');
+    }, (error) => {
+      console.log(error.text);
+    });
 }
+onMounted(async () => {
+  await getAllTexts().then((data) => {
+    for (let i = 0; i < data.length; i++) {
+      if (i == 0) {
+        for (let j in data[i]) {
+          texts.value[j] = data[i][j];
+          console.log(j);
+        }
+      }
+    }
+  });
+});
 </script>
 
 <template>
@@ -54,30 +68,17 @@ export default {
           placeholder="Message">
         </textarea>
         
-        <input type="submit" value="Send">
+        <buttom type="submit" class="submitButton">
+          {{ $i18n.locale == 'en' ? 'Send' : 'Enviar' }}
+        </buttom>
+      
       </form>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { getAllTexts } from "../db";
 
-const texts = ref([]);
-
-onMounted(async () => {
-  await getAllTexts().then((data) => {
-    for (let i = 0; i < data.length; i++) {
-      if (i == 0) {
-        for (let j in data[i]) {
-          texts.value[j] = data[i][j];
-          console.log(j);
-        }
-      }
-    }
-  });
-});
 </script>
 
 <style scoped>
@@ -102,7 +103,7 @@ input:focus, textarea:focus {
   outline: none;
 }
 
-input[type=submit] {
+.submitButton {
   background-color: #282828;
   color: white;
   font-size: 1.1rem;
@@ -119,7 +120,7 @@ input[type=submit] {
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-input[type=submit]:hover {
+.submitButton:hover {
   background-color: var(--color-primary);
 }
 

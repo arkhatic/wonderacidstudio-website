@@ -40,6 +40,7 @@ async function saveMember(member) {
     name: member.name,
     age: member.age,
     discord: member.discord,
+    registrationDate: member.registrationDate,
     profilePicture: member.profilePicture,
     pronouns: member.pronouns,
     about: member.about,
