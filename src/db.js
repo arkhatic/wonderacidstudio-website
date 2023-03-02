@@ -17,11 +17,11 @@ const firebaseConfig = {
   appId: "1:863989077253:web:d846b4b3108b199338d36c",
   measurementId: "G-17D711GFQM"
 };
-import {onLCP, onFID, onCLS} from 'web-vitals';
+//import {onLCP, onFID, onCLS} from 'web-vitals';
 
-onCLS(console.log);
-onFID(console.log);
-onLCP(console.log);
+//onCLS(console.log);
+//onFID(console.log);
+//onLCP(console.log);
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
