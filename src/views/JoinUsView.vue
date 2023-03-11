@@ -10,7 +10,21 @@
       <div v-if="isRegistered() == false" class="min-h-screen flex flex-col justify-center items-center" id="forms">
         <h1 class="text-3xl font-extrabold">{{ $i18n.locale == 'en' ? "Please fill the form." : "Preencha o formulário abaixo." }}</h1>
         <form>
-          <input type="text" v-model="name" name="name" :placeholder="$i18n.locale == 'en' ? 'Name' : 'Nome'">
+          <input type="text" v-model="name" class="no-padding" name="name" :placeholder="$i18n.locale == 'en' ? 'Name' : 'Nome'">
+          <div style="
+            background-color: #2c1230;
+            padding: 5px;
+            border-radius: 0 0 5px 5px;
+            display: flex;
+            align-items: center;
+          ">
+            <span class="material-symbols-rounded" style="padding: 15px">
+            info
+            </span>
+            <label for="about">
+              {{  $i18n.locale == 'en' ? 'Write here the first name + your nickname. Example: Arthur "Ark"' : 'Escreva aqui seu primeiro nome + seu apelido. Exemplo: Arthur "Ark"' }}
+            </label>
+          </div>
           <input type="email" v-model="email" name="email" placeholder="Email">
           <input type="number" v-model="age" name="age" :placeholder="$i18n.locale == 'en' ? 'Age' : 'Idade'">
           <input type="text" v-model="discord" name="discord" placeholder="Discord ID">
