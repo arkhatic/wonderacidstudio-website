@@ -51,9 +51,11 @@ async function saveMember(member) {
     registrationDate: member.registrationDate,
     profilePicture: member.profilePicture,
     pronouns: member.pronouns,
+    primaryRole: member.primaryRole,
     about: member.about,
     aboutTechnical: member.aboutTechnical,
     roles: member.roles,
+    notes: member.notes,
     links: member.links,
     images: member.images
   });
