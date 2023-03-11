@@ -208,6 +208,9 @@ async function saveNewMember() {
       about: about.value,
       aboutTechnical: aboutTechnical.value,
 
+      notes: '',
+      primaryRole: '',
+
       links: links.value,
       images: images.value,
       roles: rr,
