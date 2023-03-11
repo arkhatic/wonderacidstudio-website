@@ -15,10 +15,25 @@
           <input type="number" v-model="age" name="age" :placeholder="$i18n.locale == 'en' ? 'Age' : 'Idade'">
           <input type="text" v-model="discord" name="discord" placeholder="Discord ID">
           <input type="text" v-model="profilePicture" name="profilePicture" :placeholder="$i18n.locale == 'en' ? 'Profile picture link' : 'Link da foto de perfil'">
-          <input type="text" v-model="about" name="about" :placeholder="$i18n.locale == 'en' ? 'About you in English' : 'Sobre você em inglês'">
-          <input type="text" v-model="aboutPortuguese" name="about" :placeholder="$i18n.locale == 'en' ? 'About you in Portuguese' : 'Sobre você em português'">
+          <input type="text" v-model="about" name="about" :placeholder="$i18n.locale == 'en' ? 'About you' : 'Sobre você'">
+          <input type="text" class="no-padding" v-model="aboutTechnical" name="about" :placeholder="$i18n.locale == 'en' ? 'About your work' : 'Sobre suas competências'">
+          <div style="
+            background-color: #2c1230;
+            padding: 5px;
+            border-radius: 0 0 5px 5px;
+            display: flex;
+            align-items: center;
+          ">
+            <span class="material-symbols-rounded" style="padding: 15px">
+            info
+            </span>
+            <label for="about">
+              {{  $i18n.locale == 'en' ? 'Write here about the specificities about what you do (Programing languages, art and animation styles, etc)' : 'Escreva aqui as especificidades daquilo que você faz (linguagens de programação, estilos de arte e animação, etc)' }}
+            </label>
+          </div>
+          
           <!-- radial buttons -->
-          <div class="radio">
+          <div class="radio" style="margin-top: 20px;">
             <h3>{{ $i18n.locale == "en" ? "Gender" : "Gênero" }}</h3>
             <input type="radio" v-model="pronouns" value="He/His">{{ $i18n.locale == "en" ? "He/His" : "Ele/Dele" }}
             <input type="radio" v-model="pronouns" value="She/Her">{{ $i18n.locale == "en" ? "He/His" : "Ela/Dela" }}
@@ -127,6 +142,11 @@ form input[type=radio], form input[type=checkbox]  {
   background: #282828;
   border-radius: 5px;
   color: black;
+}
+
+.no-padding {
+  margin-bottom: 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .submitButton {
