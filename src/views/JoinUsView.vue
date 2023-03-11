@@ -176,7 +176,7 @@ const discord = ref("");
 
 const profilePicture = ref("");
 const about = ref("");
-const aboutPortuguese = ref("");
+const aboutTechnical = ref("");
 const pronouns = ref("");
 const links = ref(['']);
 const images = ref(['']);
@@ -206,7 +206,7 @@ async function saveNewMember() {
       age: age.value,
       profilePicture: profilePicture.value,
       about: about.value,
-      aboutPortuguese: aboutPortuguese.value,
+      aboutTechnical: aboutTechnical.value,
 
       links: links.value,
       images: images.value,
@@ -220,7 +220,7 @@ async function saveNewMember() {
       discord.value = "";
       profilePicture.value = "";
       about.value = "";
-      aboutPortuguese.value = "";
+      aboutTechnical.value = "";
       pronouns.value = "";
       links.value = [''];
       images.value = [''];

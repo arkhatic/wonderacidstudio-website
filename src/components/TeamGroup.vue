@@ -51,7 +51,8 @@ const handleSelect = () => {
           :key="teamMember.name"
           :name="teamMember.name"
           :image="teamMember.profilePicture"
-          :role="teamMember.role"
+          :pricipalRole="teamMember.primaryRole"
+          :role="teamMember.roles"
         >
         </TeamMember>
       </div>

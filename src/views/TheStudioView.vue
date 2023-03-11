@@ -28,7 +28,7 @@
         class="xl:w-[32rem] lg:w-full md:min-w-[28rem] max-w-[32rem] min-w-fit h-[12rem] flex flex-row justify-between bg-[#f2f2f2] dark:bg-[#222222] rounded-xl shadow-xl hover:shadow-none"
       >
         <div class="p-12 w-1/2 flex-col justify-center flex h-full">
-          <h1 class="text-lg sm:text-xl font-mono">{{ headMember.roles[0] }}</h1>
+          <h1 class="text-lg sm:text-xl font-mono">{{ headMember.primaryRole }}</h1>
           <h1 class="font-extrabold text-xl sm:text-3xl">
             {{ headMember.name }}
           </h1>

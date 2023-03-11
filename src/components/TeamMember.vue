@@ -44,7 +44,7 @@ const toggleOverlay = () => {
         <h2 class="px-4 text-2xl text-white font-extrabold">
           {{ member.name }}
         </h2>
-        <h3 class="text-xl font-mono font-bold">{{ member.roles[0] }}</h3>
+        <h3 class="text-xl font-mono font-bold">{{ member.primaryRole }}</h3>
       </div>
 
       <div
