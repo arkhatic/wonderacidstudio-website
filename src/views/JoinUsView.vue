@@ -25,7 +25,7 @@
               {{  $i18n.locale == 'en' ? 'Write here the first name + your nickname. Example: Arthur "Ark"' : 'Escreva aqui seu primeiro nome + seu apelido. Exemplo: Arthur "Ark"' }}
             </label>
           </div>
-          <input type="email" v-model="email" name="email" placeholder="Email">
+          <input type="email" style="margin-top: 20px;" v-model="email" name="email" placeholder="Email">
           <input type="number" v-model="age" name="age" :placeholder="$i18n.locale == 'en' ? 'Age' : 'Idade'">
           <input type="text" v-model="discord" name="discord" placeholder="Discord ID">
           <input type="text" v-model="profilePicture" name="profilePicture" :placeholder="$i18n.locale == 'en' ? 'Profile picture link' : 'Link da foto de perfil'">
@@ -50,8 +50,8 @@
           <div class="radio" style="margin-top: 20px;">
             <h3>{{ $i18n.locale == "en" ? "Gender" : "Gênero" }}</h3>
             <input type="radio" v-model="pronouns" value="He/His">{{ $i18n.locale == "en" ? "He/His" : "Ele/Dele" }}
-            <input type="radio" v-model="pronouns" value="She/Her">{{ $i18n.locale == "en" ? "He/His" : "Ela/Dela" }}
-            <input type="radio" v-model="pronouns" value="They/Their">{{ $i18n.locale == "en" ? "He/His" : "Outro" }}
+            <input type="radio" v-model="pronouns" value="She/Her">{{ $i18n.locale == "en" ? "She/Her" : "Ela/Dela" }}
+            <input type="radio" v-model="pronouns" value="They/Them">{{ $i18n.locale == "en" ? "They/Them" : "Outro" }}
           </div>
 
           <div class="radio"> 

@@ -50,7 +50,7 @@ onMounted(async () => {
 
     <nav class="flex">
       
-      <a href="https://discord.gg/WONDERACID" rel="noreferrer noopener" target="_blank">
+      <a href="https://discord.gg/6G6A8GR2eu" rel="noreferrer noopener" target="_blank">
         <img
           alt="discord logo"
           src="@/assets/icons/discord.svg"
@@ -58,7 +58,7 @@ onMounted(async () => {
         />
       </a>
 
-      <a href="https://twitter.com/wonderacid" rel="noreferrer noopener" target="_blank">
+      <a href="https://twitter.com/WonderAcidGames" rel="noreferrer noopener" target="_blank">
         <img
           alt="twitter logo"
           src="@/assets/icons/twitter.svg"
@@ -66,19 +66,11 @@ onMounted(async () => {
         />
       </a>
 
-      <a href="https://www.instagram.com/wonderacid/" rel="noreferrer noopener" target="_blank">
+      <a href="https://www.instagram.com/wonderacidstudio/" rel="noreferrer noopener" target="_blank">
         <img
           alt="instagram logo"
           src="@/assets/icons/instagram.svg"
           class="h-6 w-6 mx-1.5 hover:scale-105"
-        />
-      </a>
-
-      <a href="https://www.youtube.com/channel/UCZ1Z1YQ1Q9Z0Z9Z0Z9Z0Z9Z0" rel="noreferrer noopener" target="_blank">
-        <img
-          alt="youtube logo"
-          src="@/assets/icons/youtube.svg"
-          class="h-6 w-6 ml-1.5 hover:scale-105"
         />
       </a>
       <LanguageSwitcher />

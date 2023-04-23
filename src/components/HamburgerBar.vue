@@ -2,6 +2,7 @@
 import { RouterLink } from "vue-router";
 import { ref, onMounted } from "vue";
 import { getAllTexts } from "../db";
+import AltLanguageSwitcher from "./AltLanguageSwitcher.vue";
 
 const texts = ref({});
 const loading = ref(true);
@@ -23,23 +24,18 @@ onMounted(async () => {
 const socials = [
   {
     name: "Discord",
-    link: "https://discord.gg/WONDERACID",
+    link: "https://discord.gg/6G6A8GR2eu",
     icon: "discord.svg",
   },
   {
     name: "Twitter",
-    link: "https://twitter.com/wonderacid",
+    link: "https://twitter.com/WonderAcidGames",
     icon: "twitter.svg",
   },
   {
     name: "Instagram",
-    link: "https://www.instagram.com/wonderacid/",
+    link: "https://www.instagram.com/wonderacidstudio/",
     icon: "instagram.svg",
-  },
-  {
-    name: "Youtube",
-    link: "https://www.youtube.com/channel/UCZ1Z1YQ1Q9Z0Z9Z0Z9Z0Z9Z0",
-    icon: "youtube.svg",
   },
 ];
 
@@ -116,6 +112,9 @@ const handleSelected = () => {
           <img :src="('src/assets/icons/' + social.icon)" class="w-6 h-6 mr-3" />
           <p>{{ social.name }}</p>
         </a>
+
+        <h1 class="text-2xl font-black mt-4">{{ $i18n.locale == 'en' ? 'Language' : 'Linguagem' }}</h1>
+        <AltLanguageSwitcher />
       </div>
     </div>
   </aside>
