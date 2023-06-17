@@ -27,16 +27,6 @@ const socials = [
     link: "https://discord.gg/6G6A8GR2eu",
     icon: "discord.svg",
   },
-  {
-    name: "Twitter",
-    link: "https://twitter.com/WonderAcidGames",
-    icon: "twitter.svg",
-  },
-  {
-    name: "Instagram",
-    link: "https://www.instagram.com/wonderacidstudio/",
-    icon: "instagram.svg",
-  },
 ];
 
 const selected = ref(false);

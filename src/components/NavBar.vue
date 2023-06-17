@@ -57,22 +57,6 @@ onMounted(async () => {
           class="h-6 w-6 mx-1.5 hover:scale-105"
         />
       </a>
-
-      <a href="https://twitter.com/WonderAcidGames" rel="noreferrer noopener" target="_blank">
-        <img
-          alt="twitter logo"
-          src="@/assets/icons/twitter.svg"
-          class="h-6 w-6 mx-1.5 hover:scale-105"
-        />
-      </a>
-
-      <a href="https://www.instagram.com/wonderacidstudio/" rel="noreferrer noopener" target="_blank">
-        <img
-          alt="instagram logo"
-          src="@/assets/icons/instagram.svg"
-          class="h-6 w-6 mx-1.5 hover:scale-105"
-        />
-      </a>
       <LanguageSwitcher />
     </nav>
   </header>
