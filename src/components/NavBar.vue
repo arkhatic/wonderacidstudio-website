@@ -57,6 +57,12 @@ onMounted(async () => {
           class="h-6 w-6 mx-1.5 hover:scale-105"
         />
       </a>
+      <a href="" rel="noreferrer noopener" target="_blank">
+        <img 
+          src="@/assets/icons/behance.svg"
+          class="h-6 w-6 mx-1.5 hover:scale-105"
+        />
+      </a>
       <LanguageSwitcher />
     </nav>
   </header>

@@ -57,82 +57,61 @@ onMounted(async () => {
       </p>
     </div>
 
-    <div class="h-screen w-screen p-12 xl:p-96 flex flex-col text-center justify-center items-center blob-scene">
-      <h1 class="text-5xl font-black mb-8 pt-[4.5rem]">{{ $i18n.locale == 'en' ? "Please contact us on Discord!" : "Contate-nos no Discord!"}}</h1>
-
-      <!-- <form ref="form"  class="w-5/6">
-        <input 
-          type="text" 
-          name="from_name"
-          placeholder="Discord ID"
-          v-model="from_name"
-        >
-        <input 
-          type="email"
-          name="email"
-          placeholder="Email"
-          v-model="email"
-        >
-        <textarea 
-          name="message"
-          placeholder="Message"
-          v-model="message"
-        >
-        </textarea>
-        
-        <buttom type="button" class="submitButton" @click="sendEmail()">
-          {{ $i18n.locale == 'en' ? 'Send' : 'Enviar' }}
-        </buttom>
-      </form> -->
-      <div class="flex flex-col items-center md:flex-row justify-center w-full">
-        <figure class="w-64 flex flex-col rounded-xl bg-[#282828] mb-8 md:mr-8 md:mb-0">
-          <div class="bg-[#ccccb7] w-64 h-20 rounded-t-xl"></div>
-          <div class="flex">
-            <div class="p-2 rounded-full w-24 h-24 bg-[#282828] -mt-12 ml-4">
-              <img class="w-full h-full rounded-full" 
-              src="https://cdn.discordapp.com/avatars/416710158878769153/5dd40ca43f733fc14cfa2ba915f7387d.png?size=2048" 
-              alt="" width="384" height="512">
-            </div>
-
-            <code class="mt-2 ml-1 text-sm px-2 py-1 w-fit h-fit rounded-lg bg-[#202020]">{{ $i18n.locale == 'en' ? "hr" : "rh"}}</code>
-          </div>
-          
-          <div class="px-6 pb-6 text-left mb-0">
-            <h1 class="text-2xl font-bold">Grão</h1> 
-            <code class="flex items-center">
-              grao 
-              
-              <div class="p-2 absolute ml-44 rounded-md bg-[#323232] cursor-pointer hover:bg-primary tooltip" @click="copyText('grao')">
-                <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/file-folder-type/copy-icon.svg" width="16" class="invert" alt="">
+    <div class="h-fit w-screen blob-scene">
+      <div class="mt-20 py-12 p-12 xl:pt-96 flex flex-col text-center justify-center items-center">
+        <h1 class="text-5xl font-black mb-8 pt-[4.5rem]">{{ $i18n.locale == 'en' ? "Please contact us on Discord!" : "Contate-nos no Discord!"}}</h1>
+        <div class="flex flex-col items-center md:flex-row justify-center w-full">
+          <figure class="w-64 flex flex-col rounded-xl bg-[#282828] mb-8 md:mr-8 md:mb-0">
+            <div class="bg-[#ccccb7] w-64 h-20 rounded-t-xl"></div>
+            <div class="flex">
+              <div class="p-2 rounded-full w-24 h-24 bg-[#282828] -mt-12 ml-4">
+                <img class="w-full h-full rounded-full" 
+                src="https://cdn.discordapp.com/avatars/416710158878769153/5dd40ca43f733fc14cfa2ba915f7387d.png?size=2048" 
+                alt="" width="384" height="512">
               </div>
-            </code>
+            </div>
             
-          </div>
-        </figure>
-
-        <figure class="w-64 flex flex-col rounded-xl bg-[#282828]">
-          <div class="bg-[#140014] w-64 h-20 rounded-t-xl"></div>
-          <div class="flex">
-            <div class="p-2 rounded-full w-24 h-24 bg-[#282828] -mt-12 ml-4">
-              <img class="w-full h-full rounded-full" 
-              src="https://cdn.discordapp.com/avatars/614083942114525382/b07dcef11859ef6d62f98d429a27d5bd.png?size=2048" 
-              alt="" width="384" height="512">
+            <div class="px-6 pb-6 text-left mb-0">
+              <h1 class="text-2xl font-bold">Grão</h1> 
+              <code class="flex items-center">
+                grao 
+                
+                <div class="p-2 absolute ml-44 rounded-md bg-[#323232] cursor-pointer hover:bg-primary tooltip" @click="copyText('grao')">
+                  <img src="@/assets/icons/copy.png" width="16" class="invert" alt="">
+                </div>
+              </code>
+              
             </div>
+          </figure>
 
-            <code class="mt-2 ml-1 text-sm px-2 py-1 w-fit h-fit rounded-lg bg-[#202020]">{{ $i18n.locale == 'en' ? "admin" : "administrativo"}}</code>
-          </div>
-          
-          <div class="px-6 pb-6 text-left mb-0">
-            <h1 class="text-2xl font-bold">Marina</h1>
-            <code class="flex items-center">
-              marinayamamoto 
-              <div class="p-2 absolute ml-44 rounded-md bg-[#323232] cursor-pointer hover:bg-primary" @click="copyText('marinayamamoto')">
-                <img src="https://img.uxwing.com/wp-content/themes/uxwing/download/file-folder-type/copy-icon.svg" width="16" class="invert" alt="">
+          <figure class="w-64 flex flex-col rounded-xl bg-[#282828]">
+            <div class="bg-[#140014] w-64 h-20 rounded-t-xl"></div>
+            <div class="flex">
+              <div class="p-2 rounded-full w-24 h-24 bg-[#282828] -mt-12 ml-4">
+                <img class="w-full h-full rounded-full" 
+                src="https://cdn.discordapp.com/avatars/614083942114525382/b07dcef11859ef6d62f98d429a27d5bd.png?size=2048" 
+                alt="" width="384" height="512">
               </div>
-            </code>
-          </div>
-        </figure>
+            </div>
+            
+            <div class="px-6 pb-6 text-left mb-0">
+              <h1 class="text-2xl font-bold">Marina</h1>
+              <code class="flex items-center">
+                marinayamamoto 
+                <div class="p-2 absolute ml-44 rounded-md bg-[#323232] cursor-pointer hover:bg-primary" @click="copyText('marinayamamoto')">
+                  <img src="@/assets/icons/copy.png" width="16" class="invert" alt="">
+                </div>
+              </code>
+            </div>
+          </figure>
+        </div>
       </div>
+
+      <div class="h-screen w-screen p-12 lg:p-96 flex flex-col text-center justify-center items-center blob">
+        <h1 class="text-7xl font-black mb-8 pt-[4.5rem] hover:text-primary hover:underline">
+          <a href="mailto:wonderacid@gmail.com">{{ $i18n.locale == 'en' ? "Or send us an email!" : "Ou envie um email!"}}</a>
+        </h1>
+      </div> 
     </div>
   </div>
 </template>
@@ -191,6 +170,14 @@ input:focus, textarea:focus {
 .blob-scene {
   background: #1e1e1e;
   background-image: url("@/assets/images/waves/waves-black-bottom.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+}
+
+.blob {
+  background: #1e1e1e;
+  background-image: url("@/assets/images/waves/circle-scatter.svg");
   background-repeat: no-repeat;
   background-position: top;
   background-size: 100%;
