@@ -42,10 +42,13 @@ onMounted(async () => {
       <RouterLink to="/" class="navLink"> {{ $i18n.locale == 'en' ? texts.textsEnglish[0] : texts.textsPortuguese[0] }} </RouterLink>
 
       <RouterLink to="/studio" class="navLink"> {{ $i18n.locale == 'en' ? texts.textsEnglish[1] : texts.textsPortuguese[1] }} </RouterLink>
+      
+      <RouterLink to="/workforce" class="navLink"> WORKFORCE </RouterLink>
 
       <RouterLink to="/join" class="navLink"> {{ $i18n.locale == 'en' ? texts.textsEnglish[2] : texts.textsPortuguese[2] }} </RouterLink>
 
       <RouterLink to="/contact" class="navLink"> {{ $i18n.locale == 'en' ? texts.textsEnglish[3] : texts.textsPortuguese[3] }} </RouterLink>
+
     </nav>
 
     <nav class="flex">

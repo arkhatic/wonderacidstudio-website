@@ -75,6 +75,14 @@ const handleSelected = () => {
         </RouterLink>
 
         <RouterLink
+          to="/workforce"
+          class="navLink"
+          @click="handleSelected"
+        >
+          "WORKFORCE"
+        </RouterLink>
+
+        <RouterLink
           to="/join"
           class="navLink"
           @click="handleSelected"
