@@ -12,7 +12,7 @@
     </div>
 
     <div
-      class="mx-auto px-10 w-full md:w-fit grid grid-cols-2 gap-8 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center"
+      class="mx-auto px-10 w-full md:w-fit grid grid-cols-2 gap-8 lg:grid-cols-3 justify-center items-center"
     >
       <div
         v-for="project in projects"
