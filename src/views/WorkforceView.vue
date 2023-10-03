@@ -3,10 +3,10 @@
     <div
       class="w-2/3 h-fit flex flex-col py-64 items-center justify-center"
     >
-      <h1 class="text-center text-6xl xl:text-8xl font-black text-primary">
+      <h1 class="text-center text-7xl xl:text-8xl font-black text-primary">
         {{ $i18n.locale == 'en' ? workforceTexts.mainTitleEnglish : workforceTexts.mainTitlePortuguese }}
       </h1>
-      <p class="text-xl mt-4 text-center">
+      <p class="text-2xl mt-4 text-center">
         {{ $i18n.locale == 'en' ? workforceTexts.textEnglish : workforceTexts.textPortuguese }}
       </p>
     </div>
