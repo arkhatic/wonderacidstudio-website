@@ -13,7 +13,7 @@
         <h1 class="font-extrabold text-3xl sm:text-5xl text-primary">
           {{ $i18n.locale == 'en' ? teamTexts.titleEnglish : teamTexts.titlePortuguese }}
         </h1>
-        <p class="text-xl mt-4">
+        <p class="text-2xl mt-4">
           {{ $i18n.locale == 'en' ? teamTexts.descriptionEnglish : teamTexts.descriptionPortuguese }}
         </p>
       </div>
