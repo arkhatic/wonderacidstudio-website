@@ -1,9 +1,9 @@
 <template>
-  <div class="about flex-col p-10 pt-0">
+  <div class="about items-center flex-col p-10 pt-0">
     <div
-      class="w-full h-fit flex flex-col py-64 items-center justify-center"
+      class="w-2/3 h-fit flex flex-col py-64 items-center justify-center"
     >
-      <h1 class="text-center text-7xl xl:text-8xl font-black text-primary">
+      <h1 class="text-center text-6xl xl:text-8xl font-black text-primary">
         {{ $i18n.locale == 'en' ? workforceTexts.mainTitleEnglish : workforceTexts.mainTitlePortuguese }}
       </h1>
       <p class="text-xl mt-4 text-center">
@@ -45,36 +45,16 @@ const projects = ref([]);
 
 projects.value = [
   {
-    name: "Ghost Party",
-    image: "https://st2.depositphotos.com/3837271/8403/i/450/depositphotos_84032988-stock-photo-lead-by-example-sign.jpg",
+    name: "GIF",
+    image: "https://firebasestorage.googleapis.com/v0/b/wonder-acid.appspot.com/o/other%2FC%C3%B3pia%20de%204.gif?alt=media&token=8b3c1e30-aad0-41a3-a501-45faae62f386&_gl=1*dw76c3*_ga*MzQzODk1NjM3LjE2ODk5NjI1MzU.*_ga_CW55HF8NVT*MTY5NjM1NzkyNi4zLjEuMTY5NjM1ODI5NS41OS4wLjA.",
   },
   {
-    name: "Asarenp",
-    image: "https://onlinejpgtools.com/images/examples-onlinejpgtools/sunflower.jpg",
+    name: "GIF",
+    image: "https://firebasestorage.googleapis.com/v0/b/wonder-acid.appspot.com/o/other%2FC%C3%B3pia%20de%20444.gif?alt=media&token=f251be12-ca09-4a3d-8179-39c8a0aa221d&_gl=1*cvb2y2*_ga*MzQzODk1NjM3LjE2ODk5NjI1MzU.*_ga_CW55HF8NVT*MTY5NjM1NzkyNi4zLjEuMTY5NjM1ODM0Ni44LjAuMA..",
   },
   {
-    name: "Ghost Party",
-    image: "https://st2.depositphotos.com/3837271/8403/i/450/depositphotos_84032988-stock-photo-lead-by-example-sign.jpg",
-  },
-  {
-    name: "Asarenp",
-    image: "https://onlinejpgtools.com/images/examples-onlinejpgtools/sunflower.jpg",
-  },
-  {
-    name: "Ghost Party",
-    image: "https://st2.depositphotos.com/3837271/8403/i/450/depositphotos_84032988-stock-photo-lead-by-example-sign.jpg",
-  },
-  {
-    name: "Asarenp",
-    image: "https://onlinejpgtools.com/images/examples-onlinejpgtools/sunflower.jpg",
-  },
-  {
-    name: "Ghost Party",
-    image: "https://st2.depositphotos.com/3837271/8403/i/450/depositphotos_84032988-stock-photo-lead-by-example-sign.jpg",
-  },
-  {
-    name: "Asarenp",
-    image: "https://onlinejpgtools.com/images/examples-onlinejpgtools/sunflower.jpg",
+    name: "GIF",
+    image: "https://firebasestorage.googleapis.com/v0/b/wonder-acid.appspot.com/o/other%2FC%C3%B3pia%20de%20mosca.gif?alt=media&token=f19ee781-13b2-4c76-80b9-6ca9258d842f&_gl=1*1wnycv5*_ga*MzQzODk1NjM3LjE2ODk5NjI1MzU.*_ga_CW55HF8NVT*MTY5NjM1NzkyNi4zLjEuMTY5NjM1ODM1Ny42MC4wLjA.",
   },
 ]
 
