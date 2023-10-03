@@ -89,7 +89,7 @@ onMounted(async () => {
             <div class="flex">
               <div class="p-2 rounded-full w-24 h-24 bg-[#282828] -mt-12 ml-4">
                 <img class="w-full h-full rounded-full" 
-                src="https://cdn.discordapp.com/avatars/614083942114525382/b07dcef11859ef6d62f98d429a27d5bd.png?size=2048" 
+                src="https://cdn.discordapp.com/avatars/614083942114525382/7382f021d3c969742fd597701cdd76a3.webp" 
                 alt="" width="384" height="512">
               </div>
             </div>
