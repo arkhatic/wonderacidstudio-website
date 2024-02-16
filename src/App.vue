@@ -13,7 +13,7 @@ window.onresize = () => {
 <template>
   <div class="min-h-screen flex flex-col pt-0">
     <div>
-      <NavBarVue v-if="(width > 768)"/>
+      <NavBarVue v-if="width > 768" />
       <HamburgerBarVue v-else />
     </div>
 
@@ -26,6 +26,10 @@ window.onresize = () => {
 </template>
 
 <style scoped>
+* {
+  overflow: hidden;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.4s ease;
